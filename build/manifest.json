@@ -1,10 +1,24 @@
 {
     "manifest_version": 3,
-    "name": "React Chrome Extension",
+    "name": "DontBeLate",
     "version": "1.0.0",
-    "description": "A simple React app as a Chrome extension",
+    "description": "A Chrome extension that helps you be on time to events on Google Calendar.",
     "action": {
       "default_popup": "index.html"
     },
-    "permissions": []
+    "permissions": ["identity", "storage", "https://www.googleapis.com/*"],
+    "host_permissions": ["https://*.google.com/*"],
+    "content_scripts": [
+    {
+      "matches": ["https://calendar.google.com/*"],
+      "js": ["assets/main-CYJcK9uZ.js"]
+      
+    }
+  ],
+  "oauth2": {
+    "client_id": "231567409812-5qqat3a5q7o0gb7d22sgpnilkrcb92m9.apps.googleusercontent.com",
+    "scopes": [
+      "https://www.googleapis.com/auth/calendar.readonly"
+    ]
+  }
   }
